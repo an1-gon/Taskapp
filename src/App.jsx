@@ -2,10 +2,14 @@ import './index.css'
 import { Button } from "@/components/ui/button"
 import ModalComponent from './mycomponents/modal'; // Import the Modal
 import React, { useState } from 'react';
+import Contact from './Contact';
 
 export default function Home() {
 
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+ 
 
   // Function to toggle modal visibility
   const toggleModal = () => {
@@ -45,6 +49,7 @@ export default function Home() {
       <li><a href="#" class="block p-2 bg-gray-200 rounded">Task 4</a></li>
     </ul>
   </aside>
+  <Contact />
 </div>
 
   )

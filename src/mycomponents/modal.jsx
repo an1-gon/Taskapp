@@ -1,7 +1,12 @@
 // ModalComponent.jsx
 import React from 'react';
+import { useState } from 'react';
 
 const ModalComponent = ({ isOpen, toggleModal }) => {
+
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [comments, setComments] = useState('');
   return (
     <>
       {isOpen && (
@@ -21,8 +26,11 @@ const ModalComponent = ({ isOpen, toggleModal }) => {
                 <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">First Name</label>
                 <input
                   type="text"
-                  id="first-name"
+                  id="first_name"
+                  value = {firstname}
+                  onChange = {(e) => setFirstname(e.target.value)}
                   className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  required
                 />
               </div>
 
@@ -31,8 +39,11 @@ const ModalComponent = ({ isOpen, toggleModal }) => {
                 <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">Last Name</label>
                 <input
                   type="text"
-                  id="last-name"
+                  id="last_name"
+                  value = {lastname}
+                  onChange = {(e) => setLastname(e.target.value)}
                   className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  required
                 />
               </div>
 
@@ -42,7 +53,10 @@ const ModalComponent = ({ isOpen, toggleModal }) => {
                 <textarea
                   id="comments"
                   rows="4"
+                  value= {comments}
+                  onChange = {(e) => setComments(e.target.value)}
                   className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  required
                 ></textarea>
               </div>
 
@@ -51,6 +65,7 @@ const ModalComponent = ({ isOpen, toggleModal }) => {
                 <button
                   type="button"
                   onClick={toggleModal}
+                  id = "taskBtn"
                   className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 mr-2"
                 >
                   Cancel
